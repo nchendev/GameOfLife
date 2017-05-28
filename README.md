@@ -3,16 +3,17 @@ To be used with Microsoft Visual Studio
 # CURRENT ISSUES
 Hey guys, this is a beginner side project I've been working on for the last 2 days or so. There is one issue that makes me want to drink
 bleach... 
+
 Anyways... to locate the problematic code:
+
   step1: open the GameOfLine.sln file
+  
   step2: navigate to Generator.cs
+  
 Ok so the actual problem. If you're familiar with Conway's Game of Life each "tick" results in a new map as each cell follows specific 
 rules. I got that part to work in a earlier version. Now, I'm trying to store each tick (represented by a 2d int array, int[,]thisGen,
-as well as another 2d int array, int[,]nextGen, to form the current and the next ticks. Each tick is added to Array[] aoa by the compile 
-method(line 74). Lines 29-32 is where the user can choose which tick to retrieve. Depending on the answer, the program should retrieve 
-the int[,] array stored in the answer position of the Array[] aoa, or aoa[answer]- unless I'm wrong. The visualize method that calls on
-the retrieved array is lines 86-105. Line 90 is the real problem I think. The aoa that I retrieved seemed to be just a 1d array, not the
-2d one that I should have stored.
+as well as another 2d int array, int[,]nextGen, to form the current and the next ticks. Each tick is added to Array[] aoa by the compile method(line 74). Lines 29-32 is where the user can choose which tick to retrieve. Depending on the answer, the program should retrieve the int[,] array stored in the answer position of the Array[] aoa, or aoa[answer]- unless I'm wrong. The visualize method that calls onthe retrieved array is lines 86-105. Line 90 is the real problem I think. The aoa that I retrieved seemed to be just a 1d array, not the2d one that I should have stored.
+
 So in all, there are 4 areas from which the error could have come from:
   1) Line 21: initialization of Array[] aoa(possibly wrong kind of array?)
   2) Lines 29-32: retrieving the 2d int array from 1d array array aoa
